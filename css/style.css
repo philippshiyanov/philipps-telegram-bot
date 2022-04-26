@@ -50,11 +50,15 @@ button {
   border: 2px solid var(--tg-theme-button-color);
   border-radius: 20px;
   font-size: 16px;
+  width: auto;
+  height: auto;
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
   text-decoration: none;
   background-color: var(--tg-theme-button-color);
   color: var(--tg-theme-button-text-color);
   transition: background-color 250ms ease-in-out;
-  line-height: 0;
 }
 
 button:hover {
