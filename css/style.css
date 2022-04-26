@@ -1,0 +1,14 @@
+h1 {
+  text-align: center;
+  font-family: helvetica;
+  color: var(--tg-theme-text-color);
+}
+
+h4 {
+  color: var(--tg-theme-text-color);
+}
+
+img {
+  height: 10%;
+  width: 10%;
+}
