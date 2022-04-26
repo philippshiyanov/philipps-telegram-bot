@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const btn1 = document.getElementById("btn-1");
+  btn1.addEventListener("click", () => {
+    bot.MainButton.show();
+    bot.MainButton.setText("Here!");
+  });
   const bot = window.Telegram.WebApp;
   bot.ready();
   bot.MainButton.text = "hello";
