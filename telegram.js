@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const bot = window.Telegram.WebApp;
+  window.Telegram.WebApp.MainButton.setText("Here!"); //doesnt work
   bot.ready();
-  bot.expand();
-  bot.MainButton.setText("Here!");
-  bot.show();
+  bot.expand(); //works
+  window.Telegram.WebApp.MainButton.setText("Here!"); //doesnt work
 });
