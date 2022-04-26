@@ -38,6 +38,14 @@ img {
   margin: 0;
 }
 
+.item-name {
+  margin-bottom: 5px;
+}
+
+.item-price {
+  margin-bottom: 5px;
+}
+
 button {
   border: 2px solid var(--tg-theme-button-color);
   border-radius: 20px;
