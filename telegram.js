@@ -11,9 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   );
 
-  bot.MainButton.OnClick(
-    (document.getElementById("cart").style.display = "block")
-  );
+  bot.MainButton.OnClick(() => {
+    document.getElementById("cart").style.display = "block";
+    document.getElementById("store").style.display = "none";
+  });
 
   bot.ready();
   bot.expand(); //works
