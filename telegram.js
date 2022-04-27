@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", (e) => {
       cart.push(e.currentTarget.parentNode.id);
       console.log(cart);
-      bot.MainButton.setText(e.currentTarget.parentNode.id);
       bot.MainButton.show();
+      bot.MainButton.setText(e.currentTarget.parentNode.id);
     })
   );
 
