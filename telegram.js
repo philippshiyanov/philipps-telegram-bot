@@ -33,9 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     cartClick.style.display = "block";
     storeClick.style.display = "none";
-    bot.onEvent("mainButtonClicked", () => {
-      bot.close();
-    });
   });
   bot.expand();
 });
