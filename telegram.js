@@ -1,6 +1,8 @@
+const bot = window.Telegram.WebApp;
+const cart = [];
 document.addEventListener("DOMContentLoaded", () => {
-  const bot = window.Telegram.WebApp;
-  let cart = [];
+  let cartClick = document.getElementById("cart");
+  let storeClick = document.getElementById("store");
   bot.ready();
 
   document.querySelectorAll("button").forEach((btn) =>
@@ -9,26 +11,29 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(cart);
       bot.MainButton.setText("Checkout");
       bot.MainButton.show();
-      bot.MainButton.enable(); //swapped
+      //bot.MainButton.enable(); //swapped
     })
   );
 
-  function clicked() {
-    document.getElementById("cart").style.display = "block";
-    document.getElementById("store").style.display = "none";
-    bot.MainButton.setText("onEventNoParams");
-  }
-  Telegram.WebApp.onEvent("mainButtonClicked", clicked());
-  bot.expand();
+  // const clicked = () => {
+  //   cartClick.style.display = "block";
+  //   storeClick.style.display = "none";
+  //   bot.MainButton.setText("onEventNoParams");
+  //   console.log("onEventNoParams");
+  // };
+
+  //Telegram.WebApp.onEvent("mainButtonClicked", clicked());
+
   Telegram.WebApp.onEvent("mainButtonClicked", () => {
-    document.getElementById("cart").style.display = "block";
-    document.getElementById("store").style.display = "none";
+    cartClick.style.display = "block";
+    storeClick.style.display = "none";
     bot.MainButton.setText("onEvent");
   });
+  bot.expand();
 
-  // bot.MainButton.OnClick(() => {
-  //   document.getElementById("cart").style.display = "block";
-  //   document.getElementById("store").style.display = "none";
-  //   bot.MainButton.setText("onclick");
-  // });
+  bot.MainButton.OnClick(() => {
+    cartClick.style.display = "block";
+    storeClick.style.display = "none";
+    bot.MainButton.setText("onclick");
+  });
 });
