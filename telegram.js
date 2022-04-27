@@ -7,8 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
       cart.push(e.currentTarget.parentNode.id);
       console.log(cart);
       bot.MainButton.show();
-      bot.MainButton.setText(e.currentTarget.parentNode.id);
+      bot.MainButton.setText("Checkout");
     })
+  );
+
+  bot.MainButton.OnClick(
+    (document.getElementById("cart").style.display = "block")
   );
 
   bot.ready();
