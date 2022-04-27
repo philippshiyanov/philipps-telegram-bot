@@ -29,7 +29,7 @@ img {
   border-spacing: 5px;
   border-radius: 20px; */
   padding: 10px;
-  background-color: var(--tg-theme-hint-color);
+  //background-color: var(--tg-theme-hint-color);
 }
 
 .item-desc {
