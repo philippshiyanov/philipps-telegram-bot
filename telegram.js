@@ -1,6 +1,6 @@
-const bot = window.Telegram.WebApp;
-const cart = [];
 document.addEventListener("DOMContentLoaded", () => {
+  const bot = window.Telegram.WebApp;
+  const cart = [];
   let cartClick = document.getElementById("cart");
   let storeClick = document.getElementById("store");
   bot.ready();
@@ -11,29 +11,28 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(cart);
       bot.MainButton.setText("Checkout");
       bot.MainButton.show();
-      //bot.MainButton.enable(); //swapped
     })
   );
 
-  // const clicked = () => {
-  //   cartClick.style.display = "block";
-  //   storeClick.style.display = "none";
-  //   bot.MainButton.setText("onEventNoParams");
-  //   console.log("onEventNoParams");
-  // };
-
-  //Telegram.WebApp.onEvent("mainButtonClicked", clicked());
-
   Telegram.WebApp.onEvent("mainButtonClicked", () => {
+    bot.MainButton.setText("Continue");
+    document.querySelectorAll(".item").forEach((item) => {
+      cart.forEach((cartItem) => {
+        if (item.id == cartItem) {
+          let div = document.createElement("div");
+          let h4Name = document.createElement("h4");
+          let h4Price = document.createElement("h4");
+          div.classList.add("cart-item");
+          h4Name.innerHTML = item.children[1].children[0].innerHTML;
+          h4Price.innerHTML = item.children[1].children[1].innerHTML;
+          div.appendChild(h4Name);
+          div.appendChild(h4Price);
+          cartClick.appendChild(div);
+        }
+      });
+    });
     cartClick.style.display = "block";
     storeClick.style.display = "none";
-    bot.MainButton.setText("onEvent");
   });
   bot.expand();
-
-  // bot.MainButton.OnClick(() => {
-  //   cartClick.style.display = "block";
-  //   storeClick.style.display = "none";
-  //   bot.MainButton.setText("onclick");
-  // });
 });
