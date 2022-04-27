@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const bot = window.Telegram.WebApp;
   let cart = [];
+  bot.ready();
 
   document.querySelectorAll("button").forEach((btn) =>
     btn.addEventListener("click", (e) => {
@@ -30,6 +31,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   Telegram.WebApp.onEvent("mainButtonClicked", clicked());
 
-  bot.ready();
   bot.expand(); //works
 });
