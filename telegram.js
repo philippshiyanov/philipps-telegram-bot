@@ -31,9 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   bot.expand();
 
-  bot.MainButton.OnClick(() => {
-    cartClick.style.display = "block";
-    storeClick.style.display = "none";
-    bot.MainButton.setText("onclick");
-  });
+  // bot.MainButton.OnClick(() => {
+  //   cartClick.style.display = "block";
+  //   storeClick.style.display = "none";
+  //   bot.MainButton.setText("onclick");
+  // });
 });
