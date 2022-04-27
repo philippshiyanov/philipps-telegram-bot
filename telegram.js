@@ -33,6 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     cartClick.style.display = "block";
     storeClick.style.display = "none";
+  }).then(() => {
+    Telegram.WebApp.offEvent("mainButtonClicked", () => {
+      cartClick.style.display = "none";
+      storeClick.style.display = "grid";
+      Telegram.WebApp.hide();
+    });
   });
   bot.expand();
 });
