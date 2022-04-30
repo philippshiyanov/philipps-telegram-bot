@@ -10,6 +10,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const counter = document.querySelectorAll(".count");
 
   bot.ready();
+  //
+  //   document.getElementById("testbtn").addEventListener("click", (e) =>
+  //     document.querySelectorAll(".item").forEach((item) => {
+  //       cart.forEach((cartItem) => {
+  //         if (item.id == cartItem) {
+  //           let div = document.createElement("div");
+  //           let h4Name = document.createElement("h4");
+  //           let h4Price = document.createElement("h4");
+  //           div.classList.add("cart-item");
+  //           h4Name.innerHTML = item.children[2].children[0].innerHTML;
+  //           h4Price.innerHTML = item.children[2].children[1].innerHTML;
+  //           div.appendChild(h4Name);
+  //           div.appendChild(h4Price);
+  //           cartClick.appendChild(div);
+  //         }
+  //       });
+  //       storeClick.style.display = "none";
+  //       cartClick.style.display = "block";
+  //     })
+  //   );
 
   Telegram.WebApp.onEvent("mainButtonClicked", () => {
     bot.MainButton.setText("Continue");
@@ -20,8 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
           let h4Name = document.createElement("h4");
           let h4Price = document.createElement("h4");
           div.classList.add("cart-item");
-          h4Name.innerHTML = item.children[1].children[0].innerHTML;
-          h4Price.innerHTML = item.children[1].children[1].innerHTML;
+          h4Name.innerHTML = item.children[2].children[0].innerHTML;
+          h4Price.innerHTML = item.children[2].children[1].innerHTML;
           div.appendChild(h4Name);
           div.appendChild(h4Price);
           cartClick.appendChild(div);
