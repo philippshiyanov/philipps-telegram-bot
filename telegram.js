@@ -107,7 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
           (x) => x == itemID
         ).length;
       }
-
+      //if no items are selected mainButton hides
+      if (cart.length == 0) {
+        bot.MainButton.hide();
+      }
       console.log(cart);
     })
   );
