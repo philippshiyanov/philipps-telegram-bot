@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //   bot.MainButton.hide();
   // });
 
-  Telegram.WebApp.onEvent("mainButtonClicked", () => {
+  document.getElementById("testbtn").addEventListener("click", () => {
     let cartMap = cart.reduce(
       (cnt, cur) => ((cnt[cur] = cnt[cur] + 1 || 1), cnt),
       new Map()
@@ -43,13 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(cartMap);
     document.querySelectorAll(".item").forEach((item) => {
       cartMap.forEach((value, keys) => {
-        if (item.id == value) {
+        if (item.id == keys) {
           let div = document.createElement("div");
           let amm = document.createElement("h4");
           let h4Name = document.createElement("h4");
           let h4Price = document.createElement("h4");
           div.classList.add("cart-item");
-          amm.innerHTML = keys;
+          amm.innerHTML = value;
           h4Name.innerHTML = item.children[2].children[0].innerHTML;
           h4Price.innerHTML = item.children[2].children[1].innerHTML;
           div.appendChild(amm);
