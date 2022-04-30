@@ -69,14 +69,6 @@ button {
   color: var(--tg-theme-button-text-color);
 }
 
-#plus:hover {
-  animation: buttonPress 500ms ease-in-out;
-}
-
-#add:hover {
-  animation: buttonPress 500ms ease-in-out;
-}
-
 @keyframes buttonPress {
   0% {
     background: var(--tg-theme-button-color);
