@@ -54,7 +54,7 @@ img {
 }
 
 button {
-  border: 2px solid var(--tg-theme-button-color);
+  border: none;
   border-radius: 8px;
   font-size: 20px;
   width: auto;
@@ -65,13 +65,31 @@ button {
   padding-right: 15px;
   text-decoration: none;
   background-color: var(--tg-theme-button-color);
-  /* background-color: purple;  */
+  background-color: purple;
   color: var(--tg-theme-button-text-color);
-  transition: background-color 250ms ease-in-out;
 }
 
-button:hover {
-  background-color: var(--tg-theme-bg-color);
+#plus:hover {
+  animation: buttonPress 500ms ease-in-out;
+}
+
+#add:hover {
+  animation: buttonPress 500ms ease-in-out;
+}
+
+@keyframes buttonPress {
+  0% {
+    background: var(--tg-theme-button-color);
+  }
+  25% {
+    background: #3cf86d;
+  }
+  75% {
+    background: #3cf86d;
+  }
+  100% {
+    background: var(--tg-theme-button-color);
+  }
 }
 
 #add {
