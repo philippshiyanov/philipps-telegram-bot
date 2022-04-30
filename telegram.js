@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const itemCurrency = "$";
 
-  // const testbtn = document.getElementById("testbtn");
+  const testbtn = document.getElementById("testbtn");
 
   bot.ready();
 
@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // });
 
   Telegram.WebApp.onEvent("mainButtonClicked", () => {
+    // testbtn.addEventListener("click", () => {
     title.innerHTML = "Checkout";
     let cartMap = cart.reduce(
       (cnt, cur) => ((cnt[cur] = cnt[cur] + 1 || 1), cnt),
@@ -55,13 +56,16 @@ document.addEventListener("DOMContentLoaded", () => {
           let h4Name = document.createElement("h4");
           let h4Price = document.createElement("h4");
           let currency = document.createElement("h4");
+          let img = new Image(50, 50);
           div.classList.add("cart-item");
+          img.src = item.children[1].src;
           amm.innerHTML = cartMap[key];
           currency.innerHTML = itemCurrency;
           h4Name.innerHTML = item.children[2].children[0].innerHTML;
           h4Price.innerHTML =
             cartMap[key] * item.children[2].children[1].children[0].innerHTML;
           div.appendChild(amm);
+          div.appendChild(img);
           div.appendChild(h4Name);
           div.appendChild(h4Price);
           div.appendChild(currency);
@@ -72,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bot.expand();
     storeClick.style.display = "none";
     cartClick.style.display = "block";
-
+    bot.MainButton.disable();
     bot.MainButton.hide();
   });
 
