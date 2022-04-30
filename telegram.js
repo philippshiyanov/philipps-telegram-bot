@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const minus_plus = document.querySelectorAll("#minus-plus");
   const counter = document.querySelectorAll(".count");
 
+  const itemCurrency = "$";
+
+  const testbtn = document.getElementById("testbtn");
+
   bot.ready();
 
   // Telegram.WebApp.onEvent("mainButtonClicked", () => {
@@ -35,57 +39,30 @@ document.addEventListener("DOMContentLoaded", () => {
   //   bot.MainButton.hide();
   // });
 
-  document.getElementById("testbtn").addEventListener("click", () => {
-    let cartMap = cart.reduce(
-      (cnt, cur) => ((cnt[cur] = cnt[cur] + 1 || 1), cnt),
-      new Map()
-    );
-    console.log(cartMap);
-    document.querySelectorAll(".item").forEach((item) => {
-      cartMap.forEach((value, keys) => {
-        if (item.id == keys) {
-          let div = document.createElement("div");
-          let amm = document.createElement("h4");
-          let h4Name = document.createElement("h4");
-          let h4Price = document.createElement("h4");
-          div.classList.add("cart-item");
-          amm.innerHTML = value;
-          h4Name.innerHTML = item.children[2].children[0].innerHTML;
-          h4Price.innerHTML = item.children[2].children[1].innerHTML;
-          div.appendChild(amm);
-          div.appendChild(h4Name);
-          div.appendChild(h4Price);
-          cartClick.appendChild(div);
-        }
-      });
-    });
-    bot.expand();
-    storeClick.style.display = "none";
-    cartClick.style.display = "block";
-
-    bot.MainButton.hide();
-  });
-
   Telegram.WebApp.onEvent("mainButtonClicked", () => {
-    bot.MainButton.setText("Continue");
     let cartMap = cart.reduce(
       (cnt, cur) => ((cnt[cur] = cnt[cur] + 1 || 1), cnt),
       {}
     );
+    console.log(cartMap);
     document.querySelectorAll(".item").forEach((item) => {
-      cartMap.forEach((value, keys) => {
-        if (item.id == value) {
+      Object.keys(cartMap).forEach((key) => {
+        if (item.id == key) {
           let div = document.createElement("div");
           let amm = document.createElement("h4");
           let h4Name = document.createElement("h4");
           let h4Price = document.createElement("h4");
+          let currency = document.createElement("h4");
           div.classList.add("cart-item");
-          amm.innerHTML = keys;
+          amm.innerHTML = cartMap[key];
+          currency.innerHTML = itemCurrency;
           h4Name.innerHTML = item.children[2].children[0].innerHTML;
-          h4Price.innerHTML = item.children[2].children[1].innerHTML;
+          h4Price.innerHTML =
+            cartMap[key] * item.children[2].children[1].children[0].innerHTML;
           div.appendChild(amm);
           div.appendChild(h4Name);
           div.appendChild(h4Price);
+          div.appendChild(currency);
           cartClick.appendChild(div);
         }
       });
