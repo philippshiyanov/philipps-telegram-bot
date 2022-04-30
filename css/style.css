@@ -7,6 +7,7 @@
 
 * {
   touch-action: manipulation;
+  box-sizing: content-box;
 }
 
 body {
