@@ -84,10 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
-    cartClick.style.display = "block";
+    bot.expand();
     storeClick.style.display = "none";
+    cartClick.style.display = "block";
+
     bot.MainButton.hide();
   });
-
-  bot.expand();
 });
