@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const itemCurrency = "$";
 
-  const testbtn = document.getElementById("testbtn");
+  // const testbtn = document.getElementById("testbtn");
 
   bot.ready();
 
