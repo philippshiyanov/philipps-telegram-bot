@@ -3,13 +3,38 @@ document.addEventListener("DOMContentLoaded", () => {
   let cart = [];
   let cartClick = document.getElementById("cart");
   let storeClick = document.getElementById("store");
-  bot.ready();
-
   const addBtn = document.querySelectorAll("#add");
   const plus = document.querySelectorAll("#plus");
   const minus = document.querySelectorAll("#minus");
   const minus_plus = document.querySelectorAll("#minus-plus");
   const counter = document.querySelectorAll(".count");
+
+  bot.ready();
+
+  Telegram.WebApp.onEvent("mainButtonClicked", () => {
+    bot.MainButton.setText("Continue");
+    document.querySelectorAll(".item").forEach((item) => {
+      cart.forEach((cartItem) => {
+        if (item.id == cartItem) {
+          let div = document.createElement("div");
+          let h4Name = document.createElement("h4");
+          let h4Price = document.createElement("h4");
+          div.classList.add("cart-item");
+          h4Name.innerHTML = item.children[1].children[0].innerHTML;
+          h4Price.innerHTML = item.children[1].children[1].innerHTML;
+          div.appendChild(h4Name);
+          div.appendChild(h4Price);
+          cartClick.appendChild(div);
+        }
+      });
+    });
+    bot.expand();
+    storeClick.style.display = "none";
+    cartClick.style.display = "block";
+
+    bot.MainButton.hide();
+  });
+
   addBtn.forEach((btn) =>
     btn.addEventListener("click", (e) => {
       let itemID = e.currentTarget.parentNode.id;
@@ -66,28 +91,4 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(cart);
     })
   );
-
-  Telegram.WebApp.onEvent("mainButtonClicked", () => {
-    bot.MainButton.setText("Continue");
-    document.querySelectorAll(".item").forEach((item) => {
-      cart.forEach((cartItem) => {
-        if (item.id == cartItem) {
-          let div = document.createElement("div");
-          let h4Name = document.createElement("h4");
-          let h4Price = document.createElement("h4");
-          div.classList.add("cart-item");
-          h4Name.innerHTML = item.children[1].children[0].innerHTML;
-          h4Price.innerHTML = item.children[1].children[1].innerHTML;
-          div.appendChild(h4Name);
-          div.appendChild(h4Price);
-          cartClick.appendChild(div);
-        }
-      });
-    });
-    bot.expand();
-    storeClick.style.display = "none";
-    cartClick.style.display = "block";
-
-    bot.MainButton.hide();
-  });
 });
