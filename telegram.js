@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
       bot.MainButton.show();
       //shows the - + buttons
       addBtn[itemID - 1].style.display = "none";
-      minus_plus[itemID - 1].style.display = "block";
+      minus_plus[itemID - 1].style.display = "flex";
       //item counter
       counter[itemID - 1].style.display = "block";
       counter[itemID - 1].children[0].innerHTML = cart.filter(
