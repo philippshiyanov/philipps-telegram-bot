@@ -65,7 +65,7 @@ button {
   padding-right: 15px;
   text-decoration: none;
   background-color: var(--tg-theme-button-color);
-  background-color: purple;
+  /* background-color: purple; */
   color: var(--tg-theme-button-text-color);
 }
 
