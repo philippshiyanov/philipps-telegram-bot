@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const minus = document.querySelectorAll("#minus");
   const minus_plus = document.querySelectorAll("#minus-plus");
   const counter = document.querySelectorAll(".count");
+  const title = document.getElementById("title");
 
   const itemCurrency = "$";
 
@@ -40,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // });
 
   Telegram.WebApp.onEvent("mainButtonClicked", () => {
+    title.innerHTML = "Checkout";
     let cartMap = cart.reduce(
       (cnt, cur) => ((cnt[cur] = cnt[cur] + 1 || 1), cnt),
       {}
