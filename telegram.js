@@ -10,38 +10,49 @@ document.addEventListener("DOMContentLoaded", () => {
   const counter = document.querySelectorAll(".count");
 
   bot.ready();
+
+  // Telegram.WebApp.onEvent("mainButtonClicked", () => {
+  //   bot.MainButton.setText("Continue");
+  //   document.querySelectorAll(".item").forEach((item) => {
+  //     cart.forEach((cartItem) => {
+  //       if (item.id == cartItem) {
+  //         let div = document.createElement("div");
+  //         let h4Name = document.createElement("h4");
+  //         let h4Price = document.createElement("h4");
+  //         div.classList.add("cart-item");
+  //         h4Name.innerHTML = item.children[2].children[0].innerHTML;
+  //         h4Price.innerHTML = item.children[2].children[1].innerHTML;
+  //         div.appendChild(h4Name);
+  //         div.appendChild(h4Price);
+  //         cartClick.appendChild(div);
+  //       }
+  //     });
+  //   });
+  //   bot.expand();
+  //   storeClick.style.display = "none";
+  //   cartClick.style.display = "block";
   //
-  //   document.getElementById("testbtn").addEventListener("click", (e) =>
-  //     document.querySelectorAll(".item").forEach((item) => {
-  //       cart.forEach((cartItem) => {
-  //         if (item.id == cartItem) {
-  //           let div = document.createElement("div");
-  //           let h4Name = document.createElement("h4");
-  //           let h4Price = document.createElement("h4");
-  //           div.classList.add("cart-item");
-  //           h4Name.innerHTML = item.children[2].children[0].innerHTML;
-  //           h4Price.innerHTML = item.children[2].children[1].innerHTML;
-  //           div.appendChild(h4Name);
-  //           div.appendChild(h4Price);
-  //           cartClick.appendChild(div);
-  //         }
-  //       });
-  //       storeClick.style.display = "none";
-  //       cartClick.style.display = "block";
-  //     })
-  //   );
+  //   bot.MainButton.hide();
+  // });
 
   Telegram.WebApp.onEvent("mainButtonClicked", () => {
     bot.MainButton.setText("Continue");
+    let cartMap = cart.reduce(
+      (cnt, cur) => ((cnt[cur] = cnt[cur] + 1 || 1), cnt),
+      {}
+    );
     document.querySelectorAll(".item").forEach((item) => {
-      cart.forEach((cartItem) => {
-        if (item.id == cartItem) {
+      cartMap.forEach((value, keys) => {
+        if (item.id == value) {
           let div = document.createElement("div");
+          let amm = document.createElement("h4");
           let h4Name = document.createElement("h4");
           let h4Price = document.createElement("h4");
           div.classList.add("cart-item");
+          amm.innerHTML = keys;
           h4Name.innerHTML = item.children[2].children[0].innerHTML;
           h4Price.innerHTML = item.children[2].children[1].innerHTML;
+          div.appendChild(amm);
           div.appendChild(h4Name);
           div.appendChild(h4Price);
           cartClick.appendChild(div);
