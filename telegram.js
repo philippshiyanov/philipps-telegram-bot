@@ -76,8 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
     bot.expand();
     storeClick.style.display = "none";
     cartClick.style.display = "block";
-    bot.MainButton.disable();
-    bot.MainButton.hide();
+    bot.MainButton.setText("Pay");
+    // bot.MainButton.disable();
+    // bot.MainButton.hide();
   });
 
   addBtn.forEach((btn) =>
