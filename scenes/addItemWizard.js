@@ -34,7 +34,9 @@ nameStep.on('text', async (ctx) => {
   try {
     nameMessageID = ctx.message.message_id
     ctx.wizard.state.data.itemName = ctx.message.text
-    priceSentMessageID = await ctx.reply('Enter price of item:')
+    priceSentMessageID = await ctx.reply(
+      'Enter price of item(min price 66 RUB):',
+    )
     return ctx.wizard.next()
   } catch (e) {
     console.log(e)

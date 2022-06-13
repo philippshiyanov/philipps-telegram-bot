@@ -7,7 +7,7 @@ export const getInvoice = (id, image, cartItems) => {
     start_parameter: 'get_access',
     photo_url: image,
     title: 'Pay Order',
-    description: 'InvoiceDescription',
+    description: 'Invoice Description',
     currency: 'RUB',
     prices: cartItems,
     payload: {

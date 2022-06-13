@@ -27,6 +27,14 @@ h4 {
   max-height: 15vh;
   width: 10vh;
   margin: auto;
+
+}
+
+.tap-target {
+  transition: all .2s ease-in-out;
+}
+.enlarge {
+  transform: scale(1.5);
 }
 
 #store {
@@ -42,6 +50,7 @@ h4 {
   padding: 10px;
   position: relative;
   justify-content: space-evenly;
+  /* background-image: url("../../assets/loading.gif"); */
 }
 
 .item-desc {

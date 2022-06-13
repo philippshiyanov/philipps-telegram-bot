@@ -65,8 +65,7 @@ export async function getItem(cart, callback) {
             itemObj['label'] = `${rows.name} x${value}`
             itemObj['amount'] = value * rows.price * 100
             cartArr.push(itemObj)
-            console.log(`cart object: ${JSON.stringify(cartArr)}`)
-            resolve(` ${rows.name} x ${value} – $${value * rows.price}`)
+            resolve(` ${rows.name} x ${value} –  ₽${value * rows.price}`)
           },
         )
       })
@@ -75,7 +74,7 @@ export async function getItem(cart, callback) {
     itemsArr.push(...items)
     // console.log(`items array: ${items}`)
     // console.log(`cart array: ${JSON.stringify(cartArr)}`)
-    itemsArr.push(`\n Total –– $${itemPriceTotal}`)
+    itemsArr.push(`\n Total ––  ₽${itemPriceTotal}`)
     callback(itemsArr, invoiceImg, cartArr)
   })
 
