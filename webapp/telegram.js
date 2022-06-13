@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
   let itemsImages = document.querySelectorAll('.item .itemImage')
-  let itemsLoading = document.querySelectorAll('.item .loading')
+  let itemsLoading = document.querySelectorAll('svg')
   itemsImages.forEach((item, i) => {
     itemsImages[i].style.display = 'block'
     itemsLoading[i].style.display = 'none'

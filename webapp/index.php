@@ -24,8 +24,9 @@
           <div style='min-height: 10vh; max-height: 10vh; display: grid;
           justify-content: center;
           align-content: center;'>
-            <img style='display: none;' class='tap-target itemImage' src=" . stristr($row['image'], '/assets')  . " alt='item didnt load properly' /> 
-            <img style='display: block; height: 100%; width: auto;' class='loading' src='css/loading.svg'/>
+            <img style='display: none; ' class='tap-target itemImage' src=" . stristr($row['image'], '/assets')  . " alt='item didnt load properly' /> 
+            <svg class='loading' width='34' height='34' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path style='fill: var(--tg-theme-button-color);' d='M12,23a9.63,9.63,0,0,1-8-9.5,9.51,9.51,0,0,1,6.79-9.1A1.66,1.66,0,0,0,12,2.81h0a1.67,1.67,0,0,0-1.94-1.64A11,11,0,0,0,12,23Z'>
+            </path></svg>
           </div>\n
           <div class='item-desc'> \n
             <h4 class='item-name'>" . $row['name'] . " </h4> \n

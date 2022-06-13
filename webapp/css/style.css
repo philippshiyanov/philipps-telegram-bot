@@ -80,20 +80,22 @@ button {
   background-color: var(--tg-theme-button-color);
   /* background-color: purple; */
   color: var(--tg-theme-button-text-color);
+  margin-top: 10px;
 }
 
-@keyframes buttonPress {
-  0% {
-    background: var(--tg-theme-button-color);
+.loading {
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
   }
-  25% {
-    background: #3cf86d;
-  }
-  75% {
-    background: #3cf86d;
-  }
-  100% {
-    background: var(--tg-theme-button-color);
+  to {
+    transform: rotate(360deg);
   }
 }
 
