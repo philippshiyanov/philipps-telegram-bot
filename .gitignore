@@ -1,8 +1,6 @@
 .env
 .prettierrc.json
 .DS_Store
-package-lock.json
-package.json
 node_modules
 .prettierrc
 .vscode

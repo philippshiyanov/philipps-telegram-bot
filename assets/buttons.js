@@ -1,7 +1,7 @@
 import { Markup } from 'telegraf'
 
 export const WebAppLink =
-  'https://6935-37-110-244-70.eu.ngrok.io/webapp/index.php'
+  'https://bbe2-188-65-246-195.eu.ngrok.io/webapp/index.php'
 // ngrok http http://localhost:3000
 
 //app.js
